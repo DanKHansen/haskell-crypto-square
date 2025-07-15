@@ -9,7 +9,5 @@ encode :: String -> String
 encode xs = unwords . transpose . padTo r $ chunksOf r n
   where
     n = map toLower (filter isAlphaNum xs)
-    len = length n
-    r = ceiling $ sqrtDouble $ fromIntegral len
-
+    r = ceiling $ sqrtDouble $ fromIntegral $ length n
     padTo x = map (\cs -> cs ++ replicate (x - length cs) ' ')
